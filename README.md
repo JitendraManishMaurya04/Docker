@@ -1,6 +1,6 @@
 # Docker
 
-# A platoform for Building, Running & Shipping Applications. 
+# A platform for Building, Running & Shipping Applications. 
   If an application runs on developer machine it can run the same way on other machines.
   Situation arise where an application works on developer machine but not on remote machine, this is were the Docker comes for rescue.
 
