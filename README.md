@@ -4,13 +4,13 @@
   If an application runs on developer machine it can run the same way on other machines.
   Situation arise where an application works on developer machine but not on remote machine, this is were the Docker comes for rescue.
 
-#Architecture:
+## Architecture:
 	It uses CLIENT-SERVER model. Communication happens via REST-API.
 	SERVER is also known as DOCKER ENGINER. It sits in the background and build & run a Docker Containers.
 	Typically a CONTAINER is like a Process similar to other processes running on our system/computer but a special kind which contains its own file system(virtual). Container is a running environment for image.
 	On a HOST System multiple CONTIANERS can run, all sharing the OS of the HOST system itself making it lightweight. 
 	
-#Dockerfile:
+## Dockerfile:
 	A Dockerfile is a plain text file which includes instructions which docker uses to package the application into an IMAGE.
 	This DOCKER IMAGE contains everything an application needs to run.
 	The IMAGE is used by the DOCKER to START a CONTAINER.
@@ -65,11 +65,11 @@
 		=> Command to find IP-ADDRESS of Running CONTAINER
 			docker inspect {CONTAINER-ID} | findstr IPAddress
 	
-#REGISTRY vs REPOSITORY:
+## REGISTRY vs REPOSITORY:
 		REGISTRY-> A service poroviding storage. It is a collection of REPOSITORY.
 		REPOSITORY-> Collection of related IMAGES with same NAME but diff VERSIONS.
 
-#NETWORK:
+## NETWORK:
 	Docker provides its own network and we can also create a network/connection between different containers.
 	
 	=> Command to Check NETWORK provided by DOCKER
@@ -77,7 +77,7 @@
 	=> Command to CREATE NETWORK
 			docker network create mongo-network
 			
-#CONENCTING TO MONGODB & MONGO-EXPRESS USING CUSTOM-NETWORK:
+## CONENCTING TO MONGODB & MONGO-EXPRESS USING CUSTOM-NETWORK:
 	=>While developing a code we would like to connect both MONGODB and MONGO-EXPRESS Container to connect with each other via 	a CUSTOM-NETWORK create above earlier along with PORT-BINDING.
 	=> Our APLLICATION CODE present outside container can connect to MONGO DB via URL containing credential & HOST-port number(27017)
 	
@@ -100,7 +100,7 @@
 			-e ME_CONFIG_MONGODB_SERVER=mongodb \
 			mongo-express
 
-#DOCKER-COMPOSE:
+## DOCKER-COMPOSE:
 	=>Defining and running multi-container Docker applications.
 	=>While working with multiple CONTAINERS required by our application, we dont want to RUN this containers manually.
 	=>We can use docker-compose yaml file to mention all the container required to be started and communicate with each other in a   	structured manner.
@@ -135,7 +135,7 @@
 	=> COMMAND to STOP all containers using DOCKER-COMPOSE YAML file:
 		docker-compose -f filename.yaml down
 
-#DOCKER-VOLUMES:
+## DOCKER-VOLUMES:
 		=> Directory/Folder in physical HOST file system is MOUNTED  into the VIRTUAL file sysem of DOCKER.
 		=> When a data is written on the Virtual file system it is automatically replicated onto the HOST system. This helps in persistance data storage when the container is getting restarted it will retain the data.
 		=> Used for databases and stateful applications.
@@ -185,5 +185,5 @@
 				db-data:
 					driver: local
 					
-#Command to connect to DOCKER POSTGRES-DB CONTAINER with HOST system PgAdmin:
+## Command to connect to DOCKER POSTGRES-DB CONTAINER with HOST system PgAdmin:
 	docker run --name postgres-db -p 5432:5432 -e POSTGRES_PASSWORD=MauryaPg25* -d postgres:16.1-alpine3.18
